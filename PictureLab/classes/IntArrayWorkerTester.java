@@ -20,7 +20,11 @@ public class IntArrayWorkerTester
     System.out.println("fills with 2's on diagonal, 3's to left, and 1's to right");
     worker.print();
   }
-  
+  public int getInt()
+  {
+      
+  }
+   
   /** Method to test getCount*/
 //  public static void testGetCount()
 //  {
