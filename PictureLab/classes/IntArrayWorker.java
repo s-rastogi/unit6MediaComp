@@ -99,4 +99,47 @@ public class IntArrayWorker
     }
   }
  
+  /**
+   * Method that returns the count of the numbe of the number of times a passed integar value is found
+   */
+  public int getCount(int number)
+  {
+     int count = 0;
+     for (int[] rowArray : matrix)
+     {
+         for (int item: rowArray)
+         {
+             if( item == number)
+             {
+                 count++;
+             }
+         }
+     }
+     return count++;
+  }
+  public int getLargest()
+  {
+      int largest = 0;
+      for (int row = 0 ;row < matrix.length; row++)
+      {
+          for(int col = 0 ; col < matrix[0].length; col++)
+          {
+              if(matrix[row][col] > largest)
+              {
+                  largest = matrix[row][col];
+              }
+          }
+
+      }
+      return largest;
+  }
+  public int getColTotal(int col)
+  {
+      int total = 0;
+      for ( int row = 0; row <matrix.length; row++)
+      {
+          total+= matrix[row][col];
+      }
+      return total;
+  }
 }

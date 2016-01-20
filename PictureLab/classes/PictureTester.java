@@ -16,14 +16,66 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
-  
-  /** Method to test mirrorVertical */
-  public static void testMirrorVertical()
+  /**Method to test mirrorverticalRighttoLeft */
+  public static void testMirrorVerticalRightToLeft()
   {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
+  }
+  /** Method to test mirrorVertical */
+  public static void testMirrorVertical()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
+  
+  /** Method to test mirrorHorizontal */
+  public static void testMirrorHorizontal()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontal();
+    caterpillar.explore();
+  }
+  
+  /** Method to test mirrorHorizontalBotToTop */
+  public static void testHorizontalBotToTop()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontalBotToTop();
+    caterpillar.explore();
+  }
+  
+   /** Method to test keepOnlyBlue */
+  public static void testKeepOnlyBlue()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.keepOnlyBlue();
+    beach.explore();
+  }
+  
+   /** Method to negate */
+  public static void testNegate()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.negate();
+    beach.explore();
+  }
+  
+   /** Method to test grayScale */
+  public static void testGrayScale()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.grayscale();
+    beach.explore();
   }
   
   /** Method to test mirrorTemple */
@@ -33,6 +85,34 @@ public class PictureTester
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
+  }
+  
+  /** Method to test mirrorArms */
+  public static void testMirrorArms()
+  {
+    Picture snowman = new Picture("snowman.jpg");
+    snowman.explore();
+    snowman.mirrorArms();
+    snowman.explore();
+  }
+  
+  /** Method to test mirrorGull */
+  public static void testMirrorGull()
+  {
+    Picture seagull = new Picture("seagull.jpg");
+    seagull.explore();
+    seagull.mirrorGull();
+    seagull.explore();
+  }
+  
+  /** Method to test cropAndCopy*/
+  public static void testCropAndCopy()
+  {
+    Picture seagull = new Picture("seagull.jpg");
+    Picture s = new Picture("temple.jpg");
+    seagull.explore();  
+    seagull.cropAndCopy(s,100,200,150,210,90,140);
+    seagull.explore();
   }
   
   /** Method to test the collage method */
@@ -51,6 +131,7 @@ public class PictureTester
     swan.explore();
   }
   
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -59,19 +140,19 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     testZeroBlue();
-    //testKeepOnlyBlue();
+    testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
+    testNegate();
+    testGrayScale();
     //testFixUnderwater();
-    //testMirrorVertical();
-    //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
+    testMirrorVertical();
+    testMirrorTemple();
+    testMirrorArms();
+    testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
-    //testCopy();
+   // testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
@@ -81,32 +162,5 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
   }
-  public void mirrorVertical()
-
- {
-
-    Pixel[][] pixels = this.getPixels2D();
-    
-    Pixel leftPixel = null;
-    
-    Pixel rightPixel = null;
-    
-    int width = pixels[0].length;
-    
-    for (int row = 0; row < pixels.length; row++)
-    {
-         for (int col = 0; col < width / 2; col++)
-         {
-    
-         leftPixel = pixels[row][col];
-        
-         rightPixel = pixels[row][width ? 1 - col];
-        
-         rightPixel.setColor(leftPixel.getColor());
-
-        }
-
-    } 
-
+  
  }
-}
