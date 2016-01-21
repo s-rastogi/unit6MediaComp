@@ -287,14 +287,14 @@ public class Picture extends SimplePicture
       {
           for (Pixel pixelObj : rowArray)
           {
-              pixelObj.setRed(pixelObj.getRed() - 255);
-              pixelObj.setBlue(pixelObj.getBlue() - 255);
-              pixelObj.setGreen(pixelObj.getGreen() - 255);
+              pixelObj.setRed(255 - pixelObj.getRed());
+              pixelObj.setBlue(255 - pixelObj.getBlue());
+              pixelObj.setGreen(255 - pixelObj.getGreen());
           }
       }
   }
   
-  public void grayscale()
+  public void grayScale()
   {
      Pixel[][] pixels = this.getPixels2D();
      for (Pixel[] rowArray : pixels)
@@ -345,16 +345,17 @@ public class Picture extends SimplePicture
   {
     Picture burger1 = new Picture("burger1.jpg");
     Picture burger2 = new Picture("burger1.jpg");
-    this.copy(flower1,0,0);
-    this.copy(flower2,100,0);
-    this.copy(flower1,200,0);
-    Picture flowerNoBlue = new Picture(flower2);
-    flowerNoBlue.zeroBlue();
-    this.copy(flowerNoBlue,300,0);
-    this.copy(flower1,400,0);
-    this.copy(flower2,500,0);
-    this.mirrorVertical();
-    this.write("collage.jpg");
+    Picture burger3 = new Picture("burger1.jpg");
+    Picture burger4 = new Picture("burger1.jpg");
+    burger1.zeroBlue();
+    burger2.grayScale();
+    burger3.negate();
+    burger4.mirrorVerticalRightToLeft();
+    this.copy(burger2,0,0);
+    this.copy(burger1,0,500);
+    this.copy(burger3,360,0);
+    this.copy(burger4,360,500);
+    this.write("Saahil.jpg");
   }
   
   
